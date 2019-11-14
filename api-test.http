@@ -1,0 +1,30 @@
+### 对话流节点新增和修改操作
+### id（主键） dialogueFlowId（对话流关联id）pointName（节点名称）processingMode （处理方式
+###0-直接跳转新对话，1-播放音频后挂机，2-播放音频后等待回复，仍处于该节点，跳转新对话，最大循环2次）
+###jumpDialogueFlowId（跳跃对话） tagId（标签）isPersonIntervence（是否人工干预）positiveSample（正文本）
+###negativeSample（负文本）audioFrequencyIdOne（音频1）audioFrequencyIdTwo（音频2）
+
+POST http://localhost:20010
+Content-Type: application/json
+
+{
+  "header": {
+    "style": "1",
+    "appId": "31082108212",
+    "ip": "192.168.0.2"
+  },
+  "request": {
+    "c": "/dialogueFlowPoint",
+    "m": "/insertOrUpdate",
+    "p": {
+      "id": null,
+      "dialogueFlowId": 1,
+      "cycleCount": 2,
+      "pointName": "节点名称!",
+      "processingModeOne": 0,
+      "jumpDialogueFlowId": 2,
+      "tagId": 3,
+      "audList": ["48", "12"]
+    }
+  }
+}
